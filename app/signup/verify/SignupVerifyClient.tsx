@@ -323,9 +323,6 @@ function InfoStep({
             ))}
           </div>
         </div>
-        <p className="text-[11px] text-[#B0B0B0] mt-1.5">
-          성별코드: 1990년대생 남=1·여=2 / 2000년대생 남=3·여=4
-        </p>
       </Field>
 
       <Field label="통신사">

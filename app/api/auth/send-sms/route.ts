@@ -99,9 +99,10 @@ export async function POST(req: Request) {
     await prisma.verificationToken.deleteMany({
       where: { identifier: { in: [`otp:${rawPhone}`, cooldownId] } },
     })
-    console.error('[send-sms]', err)
+    const msg = err instanceof Error ? err.message : String(err)
+    console.error('[send-sms]', msg)
     return NextResponse.json(
-      { error: 'SMS 발송에 실패했습니다. 잠시 후 다시 시도해주세요.' },
+      { error: `SMS 발송 실패: ${msg}` },
       { status: 500 },
     )
   }

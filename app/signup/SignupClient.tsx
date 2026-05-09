@@ -69,8 +69,8 @@ export default function SignupClient() {
   }
 
   return (
-    <div className="min-h-screen max-w-[390px] mx-auto flex flex-col bg-white">
-      <div className="flex-1 flex flex-col justify-center px-6 pb-8 pt-12">
+    <div className="h-dvh max-w-[390px] mx-auto flex flex-col bg-white">
+      <div className="flex flex-col px-6 pt-12 pb-8 flex-1">
 
         <button
           onClick={() => router.push('/login')}
@@ -89,7 +89,7 @@ export default function SignupClient() {
         <h1 className="text-[26px] font-bold tracking-[-0.5px] text-[#181818] mb-1">아이디 설정</h1>
         <p className="text-[14px] text-[#9E9E9E] mb-8">사용할 아이디와 비밀번호를 설정해주세요</p>
 
-        <form onSubmit={handleNext} className="flex flex-col gap-4">
+        <form onSubmit={handleNext} className="flex flex-col gap-4 flex-1">
 
           {/* 아이디 */}
           <div className="flex flex-col gap-1">
@@ -153,10 +153,12 @@ export default function SignupClient() {
 
           {error && <p className="text-[13px] text-red-500 text-center">{error}</p>}
 
+          <div className="flex-1" />
+
           <button
             type="submit"
             disabled={loading || checkState !== 'available'}
-            className="w-full h-[54px] rounded-xl bg-[#181818] text-white text-[15px] font-bold mt-1 active:scale-[0.98] transition-transform disabled:opacity-40 flex items-center justify-center gap-2"
+            className="w-full h-[54px] rounded-xl bg-[#181818] text-white text-[15px] font-bold active:scale-[0.98] transition-transform disabled:opacity-40 flex items-center justify-center gap-2"
           >
             {loading ? <Spinner /> : (
               <>
