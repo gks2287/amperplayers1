@@ -100,7 +100,7 @@ export default function HomeClient({ userSports, recommendedProducts }: HomeClie
                 className="flex flex-col items-center gap-1.5 px-1 py-1"
               >
                 <div
-                  className={`w-[52px] h-[52px] rounded-2xl flex items-center justify-center transition-colors
+                  className={`w-[56px] h-[56px] rounded-2xl flex items-center justify-center transition-colors
                     ${isSelected ? 'bg-[#181818]' : 'bg-[#F5F5F5]'}`}
                 >
                   <SportIcon
