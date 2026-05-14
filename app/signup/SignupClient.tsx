@@ -162,7 +162,7 @@ export default function SignupClient() {
           >
             {loading ? <Spinner /> : (
               <>
-                다음 — 본인인증
+                다음
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M9 18l6-6-6-6" />
                 </svg>
