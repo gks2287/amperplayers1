@@ -65,7 +65,7 @@ export default function SignupClient() {
   const inputBorder = (state: CheckState) => {
     if (state === 'available') return 'border-[#00C77A] focus:border-[#00C77A]'
     if (state === 'taken' || state === 'invalid') return 'border-red-400 focus:border-red-400'
-    return 'border-[#E8E8E8] focus:border-[#181818]'
+    return 'border-neutral-200 focus:border-neutral-900'
   }
 
   return (
@@ -74,7 +74,7 @@ export default function SignupClient() {
 
         <button
           onClick={() => router.push('/login')}
-          className="self-start mb-8 flex items-center gap-1 text-[#181818]"
+          className="self-start mb-8 flex items-center gap-1 text-neutral-900"
         >
           <ChevronLeft />
           <span className="text-[14px] font-semibold">로그인으로 돌아가기</span>
@@ -82,18 +82,18 @@ export default function SignupClient() {
 
         {/* 진행 표시 */}
         <div className="flex gap-2 mb-8">
-          <div className="h-1 flex-1 rounded-full bg-[#181818]" />
-          <div className="h-1 flex-1 rounded-full bg-[#E8E8E8]" />
+          <div className="h-1 flex-1 rounded-full bg-neutral-900" />
+          <div className="h-1 flex-1 rounded-full bg-neutral-200" />
         </div>
 
-        <h1 className="text-[26px] font-bold tracking-[-0.5px] text-[#181818] mb-1">아이디 설정</h1>
-        <p className="text-[14px] text-[#9E9E9E] mb-8">사용할 아이디와 비밀번호를 설정해주세요</p>
+        <h1 className="text-[26px] font-bold tracking-[-0.5px] text-neutral-900 mb-1">아이디 설정</h1>
+        <p className="text-[14px] text-neutral-400 mb-8">사용할 아이디와 비밀번호를 설정해주세요</p>
 
         <form onSubmit={handleNext} className="flex flex-col gap-4 flex-1">
 
           {/* 아이디 */}
           <div className="flex flex-col gap-1">
-            <label className="text-[12px] font-semibold text-[#757575]">아이디</label>
+            <label className="text-[12px] font-semibold text-neutral-500">아이디</label>
             <div className="relative">
               <input
                 type="text"
@@ -101,7 +101,7 @@ export default function SignupClient() {
                 onChange={(e) => handleUsernameChange(e.target.value)}
                 placeholder="영문, 숫자, 밑줄(_) / 3~20자"
                 autoComplete="username"
-                className={`w-full h-[52px] rounded-xl border px-4 pr-10 text-[15px] text-[#181818] placeholder:text-[#C8C8C8] focus:outline-none transition-colors ${inputBorder(checkState)}`}
+                className={`w-full h-[52px] rounded-xl border px-4 pr-10 text-[15px] text-neutral-900 placeholder:text-neutral-300 focus:outline-none transition-colors ${inputBorder(checkState)}`}
               />
               <span className="absolute right-3 top-1/2 -translate-y-1/2">
                 {checkState === 'checking' && <SpinnerIcon />}
@@ -118,32 +118,32 @@ export default function SignupClient() {
 
           {/* 비밀번호 */}
           <div className="flex flex-col gap-1">
-            <label className="text-[12px] font-semibold text-[#757575]">비밀번호</label>
+            <label className="text-[12px] font-semibold text-neutral-500">비밀번호</label>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="6자 이상 입력하세요"
               autoComplete="new-password"
-              className="w-full h-[52px] rounded-xl border border-[#E8E8E8] px-4 text-[15px] text-[#181818] placeholder:text-[#C8C8C8] focus:outline-none focus:border-[#181818]"
+              className="w-full h-[52px] rounded-xl border border-neutral-200 px-4 text-[15px] text-neutral-900 placeholder:text-neutral-300 focus:outline-none focus:border-neutral-900"
             />
           </div>
 
           {/* 비밀번호 확인 */}
           <div className="flex flex-col gap-1">
-            <label className="text-[12px] font-semibold text-[#757575]">비밀번호 확인</label>
+            <label className="text-[12px] font-semibold text-neutral-500">비밀번호 확인</label>
             <input
               type="password"
               value={confirm}
               onChange={(e) => setConfirm(e.target.value)}
               placeholder="비밀번호를 다시 입력하세요"
               autoComplete="new-password"
-              className={`w-full h-[52px] rounded-xl border px-4 text-[15px] text-[#181818] placeholder:text-[#C8C8C8] focus:outline-none transition-colors ${
+              className={`w-full h-[52px] rounded-xl border px-4 text-[15px] text-neutral-900 placeholder:text-neutral-300 focus:outline-none transition-colors ${
                 confirm && password !== confirm
                   ? 'border-red-400 focus:border-red-400'
                   : confirm && password === confirm
                   ? 'border-[#00C77A] focus:border-[#00C77A]'
-                  : 'border-[#E8E8E8] focus:border-[#181818]'
+                  : 'border-neutral-200 focus:border-neutral-900'
               }`}
             />
             {confirm && password !== confirm && (
@@ -158,7 +158,7 @@ export default function SignupClient() {
           <button
             type="submit"
             disabled={loading || checkState !== 'available'}
-            className="w-full h-[54px] rounded-xl bg-[#181818] text-white text-[15px] font-bold active:scale-[0.98] transition-transform disabled:opacity-40 flex items-center justify-center gap-2"
+            className="w-full h-[54px] rounded-xl bg-neutral-900 text-white text-[15px] font-bold active:scale-[0.98] transition-transform disabled:opacity-40 flex items-center justify-center gap-2"
           >
             {loading ? <Spinner /> : (
               <>

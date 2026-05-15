@@ -47,10 +47,10 @@ export default function LoginClient() {
           </svg>
         </div>
 
-        <h1 className="text-[28px] font-bold tracking-[-0.5px] text-[#181818] text-center mb-1">
+        <h1 className="text-[28px] font-bold tracking-[-0.5px] text-neutral-900 text-center mb-1">
           시작해볼까요
         </h1>
-        <p className="text-[14px] text-[#9E9E9E] text-center mb-8">
+        <p className="text-[14px] text-neutral-400 text-center mb-8">
           계정으로 간편하게 로그인하세요
         </p>
 
@@ -61,8 +61,8 @@ export default function LoginClient() {
             loading={loading === 'google'}
             disabled={loading !== null}
             bg="bg-white"
-            border="border border-[#E8E8E8]"
-            textColor="text-[#181818]"
+            border="border border-neutral-200"
+            textColor="text-neutral-900"
             logo={<GoogleLogo />}
             label="Google로 계속하기"
           />
@@ -70,7 +70,7 @@ export default function LoginClient() {
             onClick={() => handleOAuth('apple')}
             loading={loading === 'apple'}
             disabled={loading !== null}
-            bg="bg-[#181818]"
+            bg="bg-neutral-900"
             textColor="text-white"
             logo={<AppleLogo />}
             label="Apple로 계속하기"
@@ -80,7 +80,7 @@ export default function LoginClient() {
             loading={loading === 'kakao'}
             disabled={loading !== null}
             bg="bg-[#FEE500]"
-            textColor="text-[#181818]"
+            textColor="text-neutral-900"
             logo={<KakaoLogo />}
             label="카카오로 계속하기"
           />
@@ -88,9 +88,9 @@ export default function LoginClient() {
 
         {/* 구분선 */}
         <div className="w-full flex items-center gap-3 my-6">
-          <div className="flex-1 h-px bg-[#F0F0F0]" />
-          <span className="text-[11px] text-[#C8C8C8] font-medium flex-shrink-0">아이디로 로그인</span>
-          <div className="flex-1 h-px bg-[#F0F0F0]" />
+          <div className="flex-1 h-px bg-neutral-100" />
+          <span className="text-[11px] text-neutral-300 font-medium flex-shrink-0">아이디로 로그인</span>
+          <div className="flex-1 h-px bg-neutral-100" />
         </div>
 
         {/* 아이디 로그인 폼 */}
@@ -102,7 +102,7 @@ export default function LoginClient() {
             placeholder="아이디"
             autoComplete="username"
             required
-            className="w-full h-[52px] rounded-xl border border-[#E8E8E8] px-4 text-[15px] text-[#181818] placeholder:text-[#C8C8C8] focus:outline-none focus:border-[#181818]"
+            className="w-full h-[52px] rounded-xl border border-neutral-200 px-4 text-[15px] text-neutral-900 placeholder:text-neutral-300 focus:outline-none focus:border-neutral-900"
           />
           <input
             type="password"
@@ -111,7 +111,7 @@ export default function LoginClient() {
             placeholder="비밀번호"
             autoComplete="current-password"
             required
-            className="w-full h-[52px] rounded-xl border border-[#E8E8E8] px-4 text-[15px] text-[#181818] placeholder:text-[#C8C8C8] focus:outline-none focus:border-[#181818]"
+            className="w-full h-[52px] rounded-xl border border-neutral-200 px-4 text-[15px] text-neutral-900 placeholder:text-neutral-300 focus:outline-none focus:border-neutral-900"
           />
           {credError && (
             <p className="text-[13px] text-red-500 text-center">{credError}</p>
@@ -119,7 +119,7 @@ export default function LoginClient() {
           <button
             type="submit"
             disabled={loading !== null}
-            className="w-full h-[52px] rounded-xl bg-[#181818] text-white text-[15px] font-semibold tracking-[-0.25px] active:scale-[0.98] transition-transform disabled:opacity-60"
+            className="w-full h-[52px] rounded-xl bg-neutral-900 text-white text-[15px] font-semibold tracking-[-0.25px] active:scale-[0.98] transition-transform disabled:opacity-60"
           >
             {loading === 'credentials' ? <Spinner color="white" /> : '로그인'}
           </button>
@@ -127,27 +127,27 @@ export default function LoginClient() {
 
         {/* 회원가입 */}
         <div className="flex items-center gap-2 mt-5">
-          <span className="text-[13px] text-[#9E9E9E]">계정이 없으신가요?</span>
+          <span className="text-[13px] text-neutral-400">계정이 없으신가요?</span>
           <button
             onClick={() => router.push('/signup')}
-            className="text-[13px] font-semibold text-[#181818] underline"
+            className="text-[13px] font-semibold text-neutral-900 underline"
           >
             회원가입
           </button>
         </div>
 
         {/* 약관 */}
-        <p className="text-[11px] leading-[18px] text-[#9E9E9E] text-center mt-6 px-4">
+        <p className="text-[11px] leading-[18px] text-neutral-400 text-center mt-6 px-4">
           계속 진행하면 Players의{' '}
-          <span className="underline text-[#757575]">이용약관</span>과{' '}
-          <span className="underline text-[#757575]">개인정보처리방침</span>에 동의하게 됩니다.
+          <span className="underline text-neutral-500">이용약관</span>과{' '}
+          <span className="underline text-neutral-500">개인정보처리방침</span>에 동의하게 됩니다.
         </p>
       </div>
 
       <div className="flex items-center justify-center gap-2 pb-10">
-        <div className="h-px w-16 bg-[#F0F0F0]" />
-        <span className="text-[11px] text-[#C8C8C8] font-medium">스포츠 용품 중고거래</span>
-        <div className="h-px w-16 bg-[#F0F0F0]" />
+        <div className="h-px w-16 bg-neutral-100" />
+        <span className="text-[11px] text-neutral-300 font-medium">스포츠 용품 중고거래</span>
+        <div className="h-px w-16 bg-neutral-100" />
       </div>
     </div>
   )
