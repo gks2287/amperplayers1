@@ -2,6 +2,7 @@
 
 import { useState, useRef } from 'react'
 import { useRouter } from 'next/navigation'
+import { signIn } from 'next-auth/react'
 import { trackEvent } from '@/lib/amplitude'
 
 type CheckState = 'idle' | 'checking' | 'available' | 'taken' | 'invalid'
@@ -58,10 +59,26 @@ export default function SignupClient() {
       return
     }
 
-    // 본인인증 후 계정 생성에 사용할 정보를 세션에 임시 저장
+    // UT용: SMS 인증 없이 바로 계정 생성 후 온보딩으로 이동
+    setLoading(true)
+    const signupRes = await fetch('/api/auth/signup-ut', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password }),
+    })
+    const signupData = await signupRes.json()
+    if (!signupRes.ok) {
+      setLoading(false)
+      setError(signupData.error || '회원가입에 실패했습니다.')
+      return
+    }
+
+    const loginResult = await signIn('credentials', { username, password, redirect: false })
+    setLoading(false)
+    if (loginResult?.error) { setError('로그인에 실패했습니다. 다시 시도해주세요.'); return }
+
     trackEvent('Signup Step Completed', { step: 'credentials' })
-    sessionStorage.setItem('signup_draft', JSON.stringify({ username, password }))
-    router.push('/signup/verify')
+    router.push('/signup/sports')
   }
 
   const inputBorder = (state: CheckState) => {
