@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
+import { useSession } from 'next-auth/react'
 
 const SPORT_META: Record<string, { label: string; emoji: string }> = {
   soccer:      { label: '축구',      emoji: '⚽' },
@@ -33,6 +34,7 @@ const LEVELS = [
 export default function OnboardingLevelClient() {
   const router = useRouter()
   const searchParams = useSearchParams()
+  const { update: updateSession } = useSession()
   const sportIds = (searchParams.get('sports') ?? '').split(',').filter(Boolean)
   const from = searchParams.get('from') ?? ''
 
@@ -62,6 +64,8 @@ export default function OnboardingLevelClient() {
       return
     }
 
+    // JWT 토큰 갱신 (onboardingCompleted 반영)
+    await updateSession()
     router.replace(from === 'profile' ? '/profile' : '/')
   }
 

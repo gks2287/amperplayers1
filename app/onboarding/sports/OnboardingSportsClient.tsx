@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
+import { useSession } from 'next-auth/react'
 
 const SPORTS = [
   { id: 'golf',       label: '골프',   emoji: '⛳' },
@@ -15,6 +16,7 @@ const SPORTS = [
 export default function OnboardingSportsClient() {
   const router = useRouter()
   const searchParams = useSearchParams()
+  const { update: updateSession } = useSession()
   const from = searchParams.get('from') ?? ''
   const [selected, setSelected] = useState<Set<string>>(new Set())
   const [skipping, setSkipping] = useState(false)
@@ -36,6 +38,7 @@ export default function OnboardingSportsClient() {
   const handleSkip = async () => {
     setSkipping(true)
     await fetch('/api/user/preferences', { method: 'DELETE' })
+    await updateSession()
     router.replace(from === 'profile' ? '/profile' : '/')
   }
 

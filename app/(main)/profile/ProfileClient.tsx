@@ -150,7 +150,7 @@ export default function ProfileClient({
     <div className="min-h-screen bg-white">
 
       {/* ── 헤더 ─────────────────────────────────────────── */}
-      <div className="flex items-center justify-between px-[14px] pt-[52px] pb-[12px]">
+      <div className="flex items-center justify-between px-[14px] pt-[24px] pb-[12px]">
         <span className="text-[20px] font-bold text-[#181818] tracking-[-0.5px]">마이페이지</span>
       </div>
 

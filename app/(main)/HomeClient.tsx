@@ -62,7 +62,7 @@ export default function HomeClient({ userSports, recommendedProducts }: HomeClie
   return (
     <div className="min-h-screen bg-white">
       {/* 헤더 */}
-      <div className="px-4 pt-12 pb-3">
+      <div className="px-4 pt-6 pb-3">
         <div className="flex items-center justify-between">
           <svg width="112" height="20" viewBox="0 0 201 36" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M14.1613 5.11501C21.5098 1.02755 28.2104 0.467579 31.0895 2.14191C32.6189 2.89538 35.0839 5.3232 33.8785 9.50902C32.3837 14.7001 26.0482 20.5595 17.5926 25.4151V13.8244C18.2241 13.5325 18.865 13.2126 19.5082 12.8654C24.9284 9.93962 28.4724 6.20426 27.4241 4.52229C26.3755 2.84038 21.1313 3.84869 15.711 6.77448C10.2907 9.7003 6.74675 13.4357 7.79526 15.1176C8.56198 16.3474 11.5717 16.1386 15.2534 14.7938L15.0085 15.0924C4.77276 27.6719 11.1851 32.5732 15.711 33.4522C-5.57143 39.1284 1.43411 24.6334 11.2543 17.2802C7.2681 19.1266 4.43858 18.4606 3.79197 17.0872C2.17022 14.5627 6.81273 9.20255 14.1613 5.11501Z" fill="#0E0E0E"/>
@@ -168,7 +168,7 @@ function ProductCard({ product }: { product: Product }) {
       {/* 상품 이미지 영역 */}
       <div className="relative rounded-2xl bg-[#F7F7F7] aspect-square mb-2 overflow-hidden">
         {product.grade && product.score != null && (
-          <div className="absolute top-2 left-2">
+          <div className="absolute top-2 left-2 z-10">
             <Badge grade={product.grade as 'S' | 'A' | 'B' | 'C'} score={product.score} />
           </div>
         )}

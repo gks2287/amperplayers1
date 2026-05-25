@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import Icon from '@/components/ui/Icon'
@@ -285,7 +285,9 @@ export default function ProductDetailClient({
   const [inCart, setInCart] = useState(initialInCart)
   const [toast, setToast] = useState<{ message: string; type: ToastType } | null>(null)
   const [chatLoading, setChatLoading] = useState(false)
-  const [touchStartX, setTouchStartX] = useState<number | null>(null)
+  const [dragStartX, setDragStartX] = useState<number | null>(null)
+  const [isDragging, setIsDragging] = useState(false)
+  const wheelCooldown = useRef(false)
   const [shareOpen, setShareOpen] = useState(false)
   const [offerOpen, setOfferOpen] = useState(false)
   const [buyOpen, setBuyOpen] = useState(false)
@@ -528,7 +530,7 @@ export default function ProductDetailClient({
       {/* 상단 헤더 */}
       <div className="fixed top-0 left-0 right-0 z-30 flex justify-center pointer-events-none">
       <div className="w-full max-w-[390px] flex items-center justify-between px-4 pt-safe-top py-3 bg-white/80 backdrop-blur-sm pointer-events-auto">
-        <button onClick={() => router.back()} className="p-1">
+        <button onClick={() => router.push('/')} className="p-1">
           <Icon name="arrow-left" size={24} className="text-[#181818]" />
         </button>
         <button className="p-1" onClick={() => setShareOpen(true)}>
@@ -539,19 +541,37 @@ export default function ProductDetailClient({
 
       {/* 이미지 슬라이더 */}
       <div
-  className="relative w-full aspect-square bg-[#F7F7F7] mt-[52px]"
-  onTouchStart={(e) => setTouchStartX(e.touches[0].clientX)}
-  onTouchEnd={(e) => {
-    if (touchStartX === null) return
-    const diff = touchStartX - e.changedTouches[0].clientX
+  className="relative w-full aspect-square bg-[#F7F7F7] mt-[52px] select-none"
+  onPointerDown={(e) => {
+    setDragStartX(e.clientX)
+    setIsDragging(true)
+    ;(e.currentTarget as HTMLDivElement).setPointerCapture(e.pointerId)
+  }}
+  onPointerUp={(e) => {
+    if (!isDragging || dragStartX === null) return
+    const diff = dragStartX - e.clientX
     if (diff > 50) {
-      // 왼쪽으로 스와이프 → 다음 이미지
       setCurrentImg((i) => Math.min(images.length - 1, i + 1))
     } else if (diff < -50) {
-      // 오른쪽으로 스와이프 → 이전 이미지
       setCurrentImg((i) => Math.max(0, i - 1))
     }
-    setTouchStartX(null)
+    setDragStartX(null)
+    setIsDragging(false)
+  }}
+  onPointerCancel={() => {
+    setDragStartX(null)
+    setIsDragging(false)
+  }}
+  onWheel={(e) => {
+    if (Math.abs(e.deltaX) < Math.abs(e.deltaY)) return
+    if (wheelCooldown.current) return
+    if (e.deltaX > 30) {
+      setCurrentImg((i) => Math.min(images.length - 1, i + 1))
+    } else if (e.deltaX < -30) {
+      setCurrentImg((i) => Math.max(0, i - 1))
+    }
+    wheelCooldown.current = true
+    setTimeout(() => { wheelCooldown.current = false }, 500)
   }}
 >
         {images.length > 0 ? (
