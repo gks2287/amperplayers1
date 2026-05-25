@@ -48,6 +48,12 @@ const SPORT_PRICE_RANGES: Record<string, typeof DEFAULT_PRICE_RANGES> = {
     { label: '50~100만원',   min: 500000,  max: 1000000 },
     { label: '100만원 이상',  min: 1000000, max: undefined },
   ],
+  running: [
+    { label: '10만원 이하',  min: 0,      max: 100000 },
+    { label: '10~15만원',   min: 100000, max: 150000 },
+    { label: '15~20만원',   min: 150000, max: 200000 },
+    { label: '20만원 이상',  min: 200000, max: undefined },
+  ],
   baseball: [
     { label: '10만원 이하',   min: 0,      max: 100000 },
     { label: '10~20만원',    min: 100000, max: 200000 },
