@@ -99,28 +99,28 @@ export default function HomeClient({ userSports, recommendedProducts }: HomeClie
       </div>
 
       {/* 종목 탭 */}
-      <div className="pb-4">
-        <div className="grid grid-rows-2 grid-flow-col overflow-x-auto scrollbar-hide px-4 gap-y-3 gap-x-1 pb-1">
+      <div className="pb-4 px-4">
+        <div className="grid grid-cols-4 gap-3">
           {ALL_SPORTS.map(({ key, label }) => {
             const isSelected = activeTab === key
             return (
               <button
                 key={key}
                 onClick={() => handleSportClick(key)}
-                className="flex flex-col items-center gap-1.5 px-1 py-1"
+                className="flex flex-col items-center gap-1.5"
               >
                 <div
-                  className={`w-[56px] h-[56px] rounded-2xl flex items-center justify-center transition-colors
+                  className={`w-full aspect-square rounded-xl flex items-center justify-center transition-colors
                     ${isSelected ? 'bg-[#181818]' : 'bg-[#F5F5F5]'}`}
                 >
                   <SportIcon
                     sport={key}
-                    size={26}
+                    size={28}
                     className={isSelected ? 'text-white' : 'text-[#383838]'}
                   />
                 </div>
                 <span
-                  className={`text-[10px] leading-[14px] tracking-[-0.2px] whitespace-nowrap
+                  className={`text-[11px] leading-[14px] tracking-[-0.2px] whitespace-nowrap
                     ${isSelected ? 'font-bold text-[#181818]' : 'font-medium text-[#9E9E9E]'}`}
                 >
                   {label}
@@ -128,6 +128,15 @@ export default function HomeClient({ userSports, recommendedProducts }: HomeClie
               </button>
             )
           })}
+          {/* 준비 중 */}
+          <div className="flex flex-col items-center gap-1.5">
+            <div className="w-full aspect-square rounded-xl flex items-center justify-center bg-[#F5F5F5]">
+              <span className="text-[18px]">⋯</span>
+            </div>
+            <span className="text-[11px] leading-[14px] tracking-[-0.2px] whitespace-nowrap font-medium text-[#C8C8C8]">
+              준비 중
+            </span>
+          </div>
         </div>
       </div>
 
