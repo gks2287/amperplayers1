@@ -100,22 +100,22 @@ export default function HomeClient({ userSports, recommendedProducts }: HomeClie
 
       {/* 종목 탭 */}
       <div className="pb-4 px-4">
-        <div className="grid grid-cols-4 gap-3">
+        <div className="grid grid-cols-4 gap-2.5">
           {ALL_SPORTS.map(({ key, label }) => {
             const isSelected = activeTab === key
             return (
               <button
                 key={key}
                 onClick={() => handleSportClick(key)}
-                className="flex flex-col items-center gap-1.5"
+                className="flex flex-col items-center gap-1"
               >
                 <div
-                  className={`w-full aspect-square rounded-xl flex items-center justify-center transition-colors
+                  className={`w-full h-[52px] rounded-xl flex items-center justify-center transition-colors
                     ${isSelected ? 'bg-[#181818]' : 'bg-[#F5F5F5]'}`}
                 >
                   <SportIcon
                     sport={key}
-                    size={28}
+                    size={24}
                     className={isSelected ? 'text-white' : 'text-[#383838]'}
                   />
                 </div>
@@ -129,9 +129,9 @@ export default function HomeClient({ userSports, recommendedProducts }: HomeClie
             )
           })}
           {/* 준비 중 */}
-          <div className="flex flex-col items-center gap-1.5">
-            <div className="w-full aspect-square rounded-xl flex items-center justify-center bg-[#F5F5F5]">
-              <span className="text-[18px]">⋯</span>
+          <div className="flex flex-col items-center gap-1">
+            <div className="w-full h-[52px] rounded-xl flex items-center justify-center bg-[#F5F5F5]">
+              <span className="text-[16px] text-[#C8C8C8]">⋯</span>
             </div>
             <span className="text-[11px] leading-[14px] tracking-[-0.2px] whitespace-nowrap font-medium text-[#C8C8C8]">
               준비 중
