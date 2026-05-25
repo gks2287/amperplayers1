@@ -22,7 +22,64 @@ const UNIFORM_FIELDS: FieldDef[] = [
   { type: 'text',   id: 'purchasePlace', label: '구매처',       placeholder: '쿠팡, 공식몰 등' },
 ]
 
+const SHAFT_FLEX: FieldDef = { type: 'radio', id: 'shaftFlex', label: '샤프트 플렉스', options: ['R', 'SR', 'S', 'X'], required: true }
+const SHAFT_MATERIAL: FieldDef = { type: 'radio', id: 'shaftMaterial', label: '샤프트 소재', options: ['카본', '스틸'], required: true }
+
 export const SPORTS_TABS: Record<string, TabDef[]> = {
+  golf: [
+    {
+      id: 'driver', label: '드라이버',
+      fields: [
+        { type: 'text',   id: 'brand',      label: '브랜드',    placeholder: '타이틀리스트, 캘러웨이, 테일러메이드 등', required: true },
+        { type: 'text',   id: 'model',      label: '모델명',    placeholder: 'SIM2 MAX, 파라다임 등', required: true },
+        { type: 'radio',  id: 'loft',       label: '로프트각',   options: ['9.0°', '9.5°', '10.5°', '12.0°'], required: true },
+        { type: 'text',   id: 'headVolume', label: '헤드 체적',  placeholder: '460cc' },
+        SHAFT_FLEX,
+        SHAFT_MATERIAL,
+      ],
+    },
+    {
+      id: 'wood', label: '우드/유틸',
+      fields: [
+        { type: 'text',   id: 'brand',    label: '브랜드',    placeholder: '타이틀리스트, 캘러웨이 등', required: true },
+        { type: 'text',   id: 'model',    label: '모델명',    placeholder: '모델명 입력', required: true },
+        { type: 'radio',  id: 'clubType', label: '종류',      options: ['우드', '유틸리티'], required: true },
+        { type: 'radio',  id: 'number',   label: '번호',      options: ['3W', '5W', '7W', '3U', '4U', '5U', '6U'], required: true },
+        SHAFT_FLEX,
+        SHAFT_MATERIAL,
+      ],
+    },
+    {
+      id: 'iron', label: '아이언',
+      fields: [
+        { type: 'text',   id: 'brand',    label: '브랜드',    placeholder: '타이틀리스트, 미즈노, 핑 등', required: true },
+        { type: 'text',   id: 'model',    label: '모델명',    placeholder: 'T200, JPX925 등', required: true },
+        { type: 'text',   id: 'composition', label: '구성',   placeholder: '5~9, PW', required: true },
+        { type: 'radio',  id: 'headType', label: '헤드 타입',  options: ['캐비티', '머슬백', '중공'], required: true },
+        SHAFT_FLEX,
+        SHAFT_MATERIAL,
+      ],
+    },
+    {
+      id: 'wedge', label: '웨지',
+      fields: [
+        { type: 'text',   id: 'brand',   label: '브랜드',    placeholder: '타이틀리스트, 클리블랜드 등', required: true },
+        { type: 'text',   id: 'model',   label: '모델명',    placeholder: '보키 SM9, RTX6 등', required: true },
+        { type: 'radio',  id: 'loft',    label: '로프트각',   options: ['48°', '50°', '52°', '54°', '56°', '58°', '60°'], required: true },
+        { type: 'radio',  id: 'bounce',  label: '바운스',    options: ['로우', '미드', '하이'] },
+      ],
+    },
+    {
+      id: 'putter', label: '퍼터',
+      fields: [
+        { type: 'text',   id: 'brand',    label: '브랜드',    placeholder: '스카티카메론, 오딧세이, 핑 등', required: true },
+        { type: 'text',   id: 'model',    label: '모델명',    placeholder: '뉴포트 2, 스파이더 등', required: true },
+        { type: 'radio',  id: 'headType', label: '헤드 타입',  options: ['블레이드', '말렛'], required: true },
+        { type: 'number', id: 'length',   label: '길이',      unit: 'inch', placeholder: '34' },
+      ],
+    },
+  ],
+
   cycling: [
     {
       id: 'bicycle', label: '자전거',
