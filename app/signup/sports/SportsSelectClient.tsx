@@ -112,7 +112,7 @@ export default function SportsSelectClient() {
       </div>
 
       {/* 하단 버튼 */}
-      <div className="fixed bottom-0 left-0 right-0 px-5 pb-12 pt-4 border-t border-neutral-100 bg-white z-20">
+      <div className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[390px] px-5 pb-12 pt-4 border-t border-neutral-100 bg-white z-20">
         <button
           onClick={handleDone}
           disabled={selected.size < MIN_SELECT || saving}

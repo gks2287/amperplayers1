@@ -128,7 +128,7 @@ export default function OnboardingLevelClient() {
         })}
       </div>
 
-      <div className="fixed bottom-0 left-0 right-0 px-5 pb-12 pt-4 border-t border-[#F5F5F5] bg-white z-20">
+      <div className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[390px] px-5 pb-12 pt-4 border-t border-[#F5F5F5] bg-white z-20">
         {error && <p className="text-[13px] text-red-500 text-center mb-3">{error}</p>}
         <button
           onClick={handleSave}
