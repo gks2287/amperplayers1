@@ -99,8 +99,8 @@ export default function HomeClient({ userSports, recommendedProducts }: HomeClie
       </div>
 
       {/* 종목 탭 */}
-      <div className="pb-4 px-8">
-        <div className="grid grid-cols-4 gap-2.5">
+      <div className="pb-4 px-4">
+        <div className="grid grid-cols-4 gap-4">
           {ALL_SPORTS.map(({ key, label }) => {
             const isSelected = activeTab === key
             return (
@@ -110,7 +110,7 @@ export default function HomeClient({ userSports, recommendedProducts }: HomeClie
                 className="flex flex-col items-center gap-1"
               >
                 <div
-                  className={`w-full h-[52px] rounded-xl flex items-center justify-center transition-colors
+                  className={`w-[52px] h-[52px] rounded-xl flex items-center justify-center transition-colors mx-auto
                     ${isSelected ? 'bg-[#181818]' : 'bg-[#F5F5F5]'}`}
                 >
                   <SportIcon
@@ -130,7 +130,7 @@ export default function HomeClient({ userSports, recommendedProducts }: HomeClie
           })}
           {/* 준비 중 */}
           <div className="flex flex-col items-center gap-1">
-            <div className="w-full h-[52px] rounded-xl flex items-center justify-center bg-[#F5F5F5]">
+            <div className="w-[52px] h-[52px] rounded-xl flex items-center justify-center bg-[#F5F5F5] mx-auto">
               <span className="text-[16px] text-[#C8C8C8]">⋯</span>
             </div>
             <span className="text-[11px] leading-[14px] tracking-[-0.2px] whitespace-nowrap font-medium text-[#C8C8C8]">
