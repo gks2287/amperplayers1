@@ -381,7 +381,7 @@ export default function ProductDetailClient({
 
   // formConfig에 없는 추가 키도 표시 (미래 호환)
   const definedIds = new Set(tabFields.map((f) => f.id))
-  const SCORE_KEYS = new Set(['wearScore', 'appearanceScore', 'functionalScore'])
+  const SCORE_KEYS = new Set(['wearScore', 'appearanceScore', 'functionalScore', 'usage', 'damage', 'damageParts', 'functional', 'functionalReason', 'appearance', 'comment'])
   Object.entries(metadata).forEach(([k, v]) => {
     if (!definedIds.has(k) && v && !SCORE_KEYS.has(k)) {
       metaRows.push({ label: k, value: parseMetaValue(v) })
