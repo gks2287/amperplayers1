@@ -44,20 +44,23 @@ export default function OnboardingSportsClient() {
 
   return (
     <div className="min-h-screen max-w-[390px] mx-auto flex flex-col bg-white">
-      <div className="px-4 pt-14 pb-6">
-        <div className="flex items-center justify-between mb-6">
-          <div className="flex gap-1.5">
-            {[1, 2].map((s) => (
-              <div key={s} className={`h-[3px] rounded-full transition-all ${s === 1 ? 'w-6 bg-[#181818]' : 'w-3 bg-[#E0E0E0]'}`} />
-            ))}
-          </div>
-          <button
-            onClick={handleSkip} disabled={skipping}
-            className="text-[13px] font-medium text-[#9E9E9E] disabled:opacity-50"
-          >
-            {from === 'profile' ? '뒤로' : '건너뛰기'}
-          </button>
+      <div className="relative flex items-center justify-center px-4 pt-14 pb-2">
+        {/* 진행 표시 점 */}
+        <div className="flex gap-1.5">
+          {[1, 2].map((s) => (
+            <button key={s} className={`rounded-full transition-all duration-300 ${s === 1 ? 'w-6 h-1.5 bg-[#181818]' : 'w-1.5 h-1.5 bg-[#E0E0E0]'}`} />
+          ))}
         </div>
+        {/* 건너뛰기 */}
+        <button
+          onClick={handleSkip} disabled={skipping}
+          className="absolute right-4 text-[12px] leading-[16px] font-medium text-[#9E9E9E] tracking-[0.25px] disabled:opacity-50"
+        >
+          {from === 'profile' ? '뒤로' : '건너뛰기'}
+        </button>
+      </div>
+
+      <div className="px-4 pt-6 pb-4">
 
         <h1 className="text-[28px] leading-[36px] font-bold tracking-[-0.5px] text-[#181818] mb-2">
           관심 종목을<br />선택해주세요
