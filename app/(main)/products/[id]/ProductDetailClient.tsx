@@ -375,7 +375,11 @@ export default function ProductDetailClient({
     .map((f) => {
       const raw = metadata[f.id]
       const unit = getFieldUnit(tabFields, f.id)
-      const value = parseMetaValue(raw) + (unit ? ` ${unit}` : '')
+      let value = parseMetaValue(raw) + (unit ? ` ${unit}` : '')
+      // 슬라이더 타입은 점수/최대값 형식으로 표시 (예: 75/100)
+      if (f.type === 'slider') {
+        value = `${parseMetaValue(raw)}/${f.max}`
+      }
       return { label: f.label, value }
     })
 
@@ -659,7 +663,7 @@ export default function ProductDetailClient({
           가격 제안하기
         </button>
 
-        <div className="h-px bg-[#F0F0F0] mb-5" />
+  
 
         {/* 상품 정보 (formConfig 기반) */}
         {metaRows.length > 0 && (
@@ -962,13 +966,13 @@ function MiniProductSection({ title, products }: { title: string; products: Mini
           <p className="text-[12px] text-[#C8C8C8]">상품이 없어요</p>
         </div>
       ) : (
-      <div className="flex gap-3 overflow-x-auto scrollbar-hide px-4 pb-1">
+      <div className="grid grid-cols-2 gap-3 px-4 pb-1">
         {products.map((p) => {
           const images: string[] = (() => { try { return JSON.parse(p.images) } catch { return [] } })()
           const thumb = images[0] ?? null
           return (
-            <Link key={p.id} href={`/products/${p.id}`} className="flex-shrink-0 w-[140px]">
-              <div className="relative rounded-xl bg-[#F7F7F7] w-[140px] h-[140px] mb-2 overflow-hidden">
+            <Link key={p.id} href={`/products/${p.id}`} className="flex flex-col">
+              <div className="relative rounded-xl bg-[#F7F7F7] aspect-square mb-2 overflow-hidden">
                 {p.grade && p.score != null && (
                   <div className="absolute top-1.5 left-1.5">
                     <Badge grade={p.grade as 'S' | 'A' | 'B' | 'C'} score={p.score} />

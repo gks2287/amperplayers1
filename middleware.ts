@@ -12,13 +12,14 @@ export async function middleware(req: NextRequest) {
 
   const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET })
 
+  
   if (!token) {
     const onboardingUrl = new URL('/onboarding', req.url)
     onboardingUrl.searchParams.set('callbackUrl', pathname)
     return NextResponse.redirect(onboardingUrl)
   }
 
-  // 로그인 했지만 온보딩 미완료 → 종목 선택으로
+// 로그인 했지만 온보딩 미완료 → 종목 선택으로
   if (
     !token.onboardingCompleted &&
     !pathname.startsWith('/onboarding') &&
