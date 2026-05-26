@@ -104,6 +104,8 @@ export default function OnboardingFlow() {
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
+      {/* 인트로일 때 페이지 전체 배경을 다크로 */}
+      {isIntro && <div className="fixed inset-0 bg-[#0E0E0E] -z-10" />}
       {/* 상단 영역 (인트로에서는 숨김) */}
       {!isIntro && (
         <div className="relative flex items-center justify-center px-4 pt-14 pb-2">
@@ -156,7 +158,9 @@ export default function OnboardingFlow() {
       </div>
 
       {/* 하단 버튼 (화면 하단 고정) */}
-      <div className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[390px] px-4 pb-10 pt-4 z-10">
+      <div className={`fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[390px] px-4 pb-10 pt-4 z-10 ${
+        isIntro ? 'bg-[#0E0E0E]' : 'bg-white'
+      }`}>
         <button
           onClick={goNext}
           className={`w-full h-14 text-[14px] leading-[16px] font-bold tracking-[1.5px] uppercase rounded-xl flex items-center justify-center gap-2 active:scale-[0.98] transition-transform ${
@@ -176,26 +180,26 @@ export default function OnboardingFlow() {
 /* ─── 인트로 슬라이드 ─── */
 function IntroSlide() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center">
+    <div className="flex flex-col flex-1 items-center justify-center -mt-10">
       {/* 타이틀 텍스트 */}
-      <div className="text-center mb-10">
-        <p className="text-[28px] leading-[38px] font-bold tracking-[-0.5px] text-white">
+      <div className="text-center mb-14">
+        <p className="text-[34px] leading-[46px] font-bold tracking-[-0.5px] text-white">
           스포츠 용품<br />중고거래 플랫폼
         </p>
-        <p className="text-[28px] leading-[38px] font-bold tracking-[-0.5px] text-[#00F5A0] mt-1">
+        <p className="text-[34px] leading-[46px] font-bold tracking-[-0.5px] text-[#00F5A0] mt-2">
           Players
         </p>
       </div>
 
       {/* 로고 마크 */}
-      <div className="mb-12">
-        <svg width="140" height="140" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <div className="mb-16">
+        <svg width="180" height="180" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M83.8878 47.6605C114.733 31.0567 142.859 28.782 154.944 35.5834C161.364 38.6441 171.711 48.5062 166.651 65.5095C160.377 86.5963 133.783 110.398 98.2909 130.122V83.0391C100.942 81.8534 103.632 80.5538 106.331 79.1436C129.083 67.2587 143.959 52.0852 139.559 45.2528C135.157 38.4207 113.144 42.5165 90.3927 54.4015C67.6409 66.2865 52.7649 81.46 57.1661 88.2922C60.3844 93.2879 73.018 92.4397 88.472 86.9771L87.4438 88.1899C44.4791 139.289 71.395 159.199 90.3927 162.77C1.05902 185.827 30.465 126.947 71.6857 97.0769C54.9533 104.577 43.0763 101.872 40.3622 96.2932C33.5548 86.0384 53.0419 64.2646 83.8878 47.6605Z" fill="#00F5A0"/>
         </svg>
       </div>
 
       {/* 설명 */}
-      <p className="text-[14px] leading-[22px] font-medium text-[#757575] text-center">
+      <p className="text-[16px] leading-[26px] font-medium text-[#757575] text-center">
         내가 쓰던 장비, 다음 선수에게.<br />
         종목별 전문 거래 플랫폼
       </p>
