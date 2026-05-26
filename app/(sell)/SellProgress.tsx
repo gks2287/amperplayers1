@@ -24,7 +24,7 @@ export default function SellProgress() {
   const current = stepIndex(pathname)
 
   return (
-    <div className="px-5 pt-12 pb-2 bg-white">
+    <div className="px-4 pt-12 pb-2 bg-white">
       {/* 헤더 */}
       <div className="flex items-center gap-3 mb-5">
         <button onClick={() => router.back()} className="-ml-1 p-1">

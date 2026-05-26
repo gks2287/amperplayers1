@@ -45,7 +45,7 @@ export default function SportsSelectClient() {
   return (
     <div className="min-h-screen max-w-[390px] mx-auto flex flex-col bg-white">
       {/* 헤더 */}
-      <div className="px-5 pt-14 pb-6">
+      <div className="px-4 pt-14 pb-6">
         <div className="flex items-center justify-between mb-6">
           {/* 스텝 인디케이터 */}
           <div className="flex gap-1.5">
@@ -76,7 +76,7 @@ export default function SportsSelectClient() {
       </div>
 
       {/* 종목 그리드 */}
-      <div className="flex-1 overflow-y-auto px-5 pb-24">
+      <div className="flex-1 overflow-y-auto px-4 pb-24">
         <div className="grid grid-cols-3 gap-3">
           {SPORTS.map((sport) => {
             const isSelected = selected.has(sport.id)
@@ -112,7 +112,7 @@ export default function SportsSelectClient() {
       </div>
 
       {/* 하단 버튼 */}
-      <div className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[390px] px-5 pb-12 pt-4 border-t border-neutral-100 bg-white z-20">
+      <div className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[390px] px-4 pb-12 pt-4 border-t border-neutral-100 bg-white z-20">
         <button
           onClick={handleDone}
           disabled={selected.size < MIN_SELECT || saving}

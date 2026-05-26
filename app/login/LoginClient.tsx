@@ -78,7 +78,7 @@ router.push('/')
 
   return (
     <div className="min-h-screen max-w-[390px] mx-auto flex flex-col bg-white">
-      <div className="flex-1 flex flex-col items-center justify-start px-6 pt-16 pb-4">
+      <div className="flex-1 flex flex-col items-center justify-start px-4 pt-16 pb-4">
 
         {/* 로고 */}
         <div className="mb-8">

@@ -24,7 +24,7 @@ export default function SportSelectClient() {
   return (
     <div className="flex-1 flex flex-col overflow-hidden">
       {/* 헤더 */}
-      <div className="flex-shrink-0 px-5 pt-6 pb-4">
+      <div className="flex-shrink-0 px-4 pt-6 pb-4">
         <h1 className="text-[28px] leading-[36px] font-bold tracking-[-0.5px] text-neutral-900 mb-2">
           어떤 종목의 용품인가요?
         </h1>
@@ -34,7 +34,7 @@ export default function SportSelectClient() {
       </div>
 
       {/* 종목 그리드 */}
-      <div className="flex-1 overflow-y-auto px-5">
+      <div className="flex-1 overflow-y-auto px-4">
         <div className="grid grid-cols-3 gap-3 pb-4">
           {SPORTS.map((sport) => {
             const isSelected = selected === sport.id
@@ -64,7 +64,7 @@ export default function SportSelectClient() {
       </div>
 
       {/* 다음 버튼 */}
-      <div className="flex-shrink-0 px-5 pb-6 pt-3 border-t border-neutral-100">
+      <div className="flex-shrink-0 px-4 pb-6 pt-3 border-t border-neutral-100">
         <button
           onClick={handleNext}
           disabled={!selected}

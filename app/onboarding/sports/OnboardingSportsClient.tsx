@@ -44,7 +44,7 @@ export default function OnboardingSportsClient() {
 
   return (
     <div className="min-h-screen max-w-[390px] mx-auto flex flex-col bg-white">
-      <div className="px-5 pt-14 pb-6">
+      <div className="px-4 pt-14 pb-6">
         <div className="flex items-center justify-between mb-6">
           <div className="flex gap-1.5">
             {[1, 2].map((s) => (
@@ -70,7 +70,7 @@ export default function OnboardingSportsClient() {
         </p>
       </div>
 
-      <div className="flex-1 overflow-y-auto px-5 pb-24">
+      <div className="flex-1 overflow-y-auto px-4 pb-24">
         <div className="grid grid-cols-3 gap-3">
           {SPORTS.map((sport) => {
             const isSelected = selected.has(sport.id)
@@ -99,7 +99,7 @@ export default function OnboardingSportsClient() {
         </div>
       </div>
 
-      <div className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[390px] px-5 pb-12 pt-4 border-t border-[#F5F5F5] bg-white z-20">
+      <div className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[390px] px-4 pb-12 pt-4 border-t border-[#F5F5F5] bg-white z-20">
         <button
           onClick={handleNext}
           disabled={selected.size === 0}

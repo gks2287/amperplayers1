@@ -332,7 +332,7 @@ export default function AiClient() {
 
   return (
     <div className="flex-1 flex flex-col overflow-hidden">
-      <div className="flex-1 overflow-y-auto px-5 pt-4 pb-4">
+      <div className="flex-1 overflow-y-auto px-4 pt-4 pb-4">
 
         {/* 등급 카드 */}
         <div
@@ -415,7 +415,7 @@ export default function AiClient() {
       </div>
 
       {/* 하단 버튼 */}
-      <div className="flex-shrink-0 px-[17px] pb-6 pt-3 border-t border-neutral-100 flex flex-col gap-3">
+      <div className="flex-shrink-0 px-4 pb-6 pt-3 border-t border-neutral-100 flex flex-col gap-3">
 
         {/* 상품명 */}
         <input

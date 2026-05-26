@@ -59,7 +59,7 @@ export default function PhotosClient() {
   return (
     <div className="flex-1 flex flex-col overflow-hidden">
       {/* 헤더 */}
-      <div className="flex-shrink-0 px-5 pt-6 pb-5">
+      <div className="flex-shrink-0 px-4 pt-6 pb-5">
         <h1 className="text-[28px] leading-[36px] font-bold tracking-[-0.5px] text-neutral-900 mb-1">
           사진을 등록해주세요
         </h1>
@@ -69,7 +69,7 @@ export default function PhotosClient() {
       </div>
 
       {/* 사진 영역 */}
-      <div className="flex-1 overflow-y-auto px-[14px]">
+      <div className="flex-1 overflow-y-auto px-4">
 
         {/* 3×2 사진 그리드 */}
         <div className="grid grid-cols-3 gap-[9px] mb-3">
@@ -195,7 +195,7 @@ export default function PhotosClient() {
       />
 
       {/* AI 상태 인증 시작 버튼 */}
-      <div className="flex-shrink-0 px-[17px] pb-6 pt-3 border-t border-neutral-100">
+      <div className="flex-shrink-0 px-4 pb-6 pt-3 border-t border-neutral-100">
         <button
           onClick={handleNext}
           disabled={photos.length === 0}

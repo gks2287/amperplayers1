@@ -71,7 +71,7 @@ export default function OnboardingLevelClient() {
 
   return (
     <div className="min-h-screen max-w-[390px] mx-auto flex flex-col bg-white">
-      <div className="px-5 pt-14 pb-4">
+      <div className="px-4 pt-14 pb-4">
         <div className="flex items-center justify-between mb-6">
           <div className="flex gap-1.5">
             {[1, 2].map((s) => (
@@ -91,7 +91,7 @@ export default function OnboardingLevelClient() {
         </p>
       </div>
 
-      <div className="flex-1 overflow-y-auto px-5 pb-24 flex flex-col gap-3">
+      <div className="flex-1 overflow-y-auto px-4 pb-24 flex flex-col gap-3">
         {sportIds.map((id) => {
           const sport = SPORT_META[id]
           if (!sport) return null
@@ -128,7 +128,7 @@ export default function OnboardingLevelClient() {
         })}
       </div>
 
-      <div className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[390px] px-5 pb-12 pt-4 border-t border-[#F5F5F5] bg-white z-20">
+      <div className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[390px] px-4 pb-12 pt-4 border-t border-[#F5F5F5] bg-white z-20">
         {error && <p className="text-[13px] text-red-500 text-center mb-3">{error}</p>}
         <button
           onClick={handleSave}
