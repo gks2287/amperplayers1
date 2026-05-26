@@ -107,6 +107,14 @@ export default function OnboardingFlow() {
       {/* 상단 영역 (인트로에서는 숨김) */}
       {!isIntro && (
         <div className="relative flex items-center justify-center px-4 pt-14 pb-2">
+          {/* 뒤로가기 */}
+          <button
+            onClick={() => current > 0 ? goTo(current - 1) : undefined}
+            className={`absolute left-4 ${current === 0 ? 'invisible' : ''}`}
+          >
+            <Icon name="arrow-left" size={20} className="text-[#181818]" />
+          </button>
+
           {/* 진행 표시 점 */}
           <div className="flex gap-1.5">
             {SLIDES.map((_, i) => (
@@ -136,7 +144,7 @@ export default function OnboardingFlow() {
 
       {/* 메인 콘텐츠 */}
       <div
-        className={`flex-1 flex flex-col px-4 ${isIntro ? 'pt-0' : 'pt-8'} transition-opacity duration-150 ${
+        className={`flex-1 flex flex-col px-4 pb-24 ${isIntro ? 'pt-0' : 'pt-8'} transition-opacity duration-150 ${
           exiting ? 'opacity-0' : 'opacity-100'
         }`}
       >
@@ -147,8 +155,8 @@ export default function OnboardingFlow() {
         )}
       </div>
 
-      {/* 하단 버튼 */}
-      <div className="px-4 pb-12 pt-6">
+      {/* 하단 버튼 (화면 하단 고정) */}
+      <div className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[390px] px-4 pb-10 pt-4 z-10">
         <button
           onClick={goNext}
           className={`w-full h-14 text-[14px] leading-[16px] font-bold tracking-[1.5px] uppercase rounded-xl flex items-center justify-center gap-2 active:scale-[0.98] transition-transform ${
