@@ -369,9 +369,12 @@ export default function ProductDetailClient({
     ? (SPORTS_TABS[product.sport]?.find((t) => t.id === product.productType)?.fields ?? [])
     : []
 
+  // AI 분석 전용 키 (상품 정보 박스에서 제외)
+  const SCORE_KEYS = new Set(['wearScore', 'appearanceScore', 'functionalScore', 'usage', 'damage', 'damageParts', 'functional', 'functionalReason', 'appearance', 'comment'])
+
   // metadata 키를 formConfig 필드 순서대로 정렬해서 표시
   const metaRows: { label: string; value: string }[] = tabFields
-    .filter((f) => metadata[f.id] !== undefined && metadata[f.id] !== '')
+    .filter((f) => metadata[f.id] !== undefined && metadata[f.id] !== '' && !SCORE_KEYS.has(f.id))
     .map((f) => {
       const raw = metadata[f.id]
       const unit = getFieldUnit(tabFields, f.id)
@@ -381,7 +384,6 @@ export default function ProductDetailClient({
 
   // formConfig에 없는 추가 키도 표시 (미래 호환)
   const definedIds = new Set(tabFields.map((f) => f.id))
-  const SCORE_KEYS = new Set(['wearScore', 'appearanceScore', 'functionalScore', 'usage', 'damage', 'damageParts', 'functional', 'functionalReason', 'appearance', 'comment'])
   Object.entries(metadata).forEach(([k, v]) => {
     if (!definedIds.has(k) && v && !SCORE_KEYS.has(k)) {
       metaRows.push({ label: k, value: parseMetaValue(v) })
