@@ -200,13 +200,6 @@ export default function SearchClient() {
       {/* 검색 전: 최근검색 + 인기검색어 */}
       {showOverlay && (
         <div className="px-4">
-          {/* 카테고리 필터 — 인기 종목 순 */}
-          <CategoryBar
-            popularSports={popularSports}
-            category={category}
-            onSelect={selectCategory}
-          />
-
           {/* 최근 검색 */}
           {recent.length > 0 && (
             <section className="mb-6">
@@ -269,12 +262,6 @@ export default function SearchClient() {
       {/* 검색 결과 */}
       {!showOverlay && query.length > 0 && (
         <div className="px-4">
-          <CategoryBar
-            popularSports={popularSports}
-            category={category}
-            onSelect={selectCategory}
-          />
-
           {loading ? (
             <div className="flex justify-center py-24">
               <div className="w-6 h-6 border-2 border-[#181818] border-t-transparent rounded-full animate-spin" />
