@@ -64,7 +64,7 @@ export default function SportSelectClient() {
       </div>
 
       {/* 다음 버튼 */}
-      <div className="flex-shrink-0 px-4 pb-6 pt-3 border-t border-neutral-100">
+      <div className="flex-shrink-0 px-4 pb-6 pt-3">
         <button
           onClick={handleNext}
           disabled={!selected}

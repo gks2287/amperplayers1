@@ -59,7 +59,7 @@ export default function DetailClient() {
       </div>
 
       {/* 탭 바 */}
-      <div className="flex-shrink-0 border-b border-neutral-100">
+      <div className="flex-shrink-0">
         <div className="flex overflow-x-auto scrollbar-hide px-4 gap-1">
           {tabs.map((tab) => {
             const isActive = tab.id === activeTabId
@@ -92,7 +92,7 @@ export default function DetailClient() {
       </div>
 
       {/* 다음 버튼 */}
-      <div className="flex-shrink-0 px-4 pb-12 pt-4 border-t border-neutral-100">
+      <div className="flex-shrink-0 px-4 pb-12 pt-4">
         <button
           onClick={handleNext}
           className="w-full h-[56px] rounded-xl bg-neutral-900 text-primary text-[15px] font-bold tracking-[-0.25px] active:scale-[0.98] transition-all"

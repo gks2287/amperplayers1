@@ -7,6 +7,7 @@ const STEPS = [
   { label: '상세 입력', path: '/sell/detail' },
   { label: '사진 등록', path: '/sell/price' },
   { label: 'AI 인증',  path: '/sell/ai' },
+  { label: '상품 등록', path: '/sell/register' },
 ]
 
 function stepIndex(pathname: string) {

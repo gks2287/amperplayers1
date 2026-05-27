@@ -195,7 +195,7 @@ export default function PhotosClient() {
       />
 
       {/* AI 상태 인증 시작 버튼 */}
-      <div className="flex-shrink-0 px-4 pb-6 pt-3 border-t border-neutral-100">
+      <div className="flex-shrink-0 px-4 pb-6 pt-3">
         <button
           onClick={handleNext}
           disabled={photos.length === 0}
