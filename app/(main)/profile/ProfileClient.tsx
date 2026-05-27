@@ -188,26 +188,26 @@ export default function ProfileClient({
             <div className="flex items-center gap-1.5 mb-[4px]">
               <span className="text-[13px] font-bold text-[#181818] truncate">{displayName}</span>
               {levelLabel && (
-                <span className="px-[5px] py-[2px] bg-[#181818] rounded text-[8px] font-bold text-white leading-none">
+                <span className="px-[5px] py-[2px] bg-[#181818] rounded text-[14px] font-bold text-white leading-none">
                   {levelLabel}
                 </span>
               )}
             </div>
             <div className="flex items-center gap-1">
               <div className="flex items-center gap-0.5">
-                <Icon name="star-02" size={12} className="text-[#757575]" />
-                <span className="text-[10px] text-[#757575]">4.8</span>
+                <Icon name="star-02" size={14} className="text-[#757575]" />
+                <span className="text-[14px] text-[#757575]">0.0</span>
               </div>
               {sportLabel && (
                 <>
-                  <span className="text-[10px] text-[#757575]">·</span>
-                  <span className="text-[10px] text-[#757575]">{sportLabel}</span>
+                  <span className="text-[14px] text-[#757575]">·</span>
+                  <span className="text-[14px] text-[#757575]">{sportLabel}</span>
                 </>
               )}
             </div>
           </div>
           <Link href="/profile/store">
-            <Icon name="right" size={14} className="text-[#C8C8C8]" />
+            <Icon name="right" size={20} className="text-[#C8C8C8]" />
           </Link>
         </div>
 
@@ -216,7 +216,7 @@ export default function ProfileClient({
         <div className="flex">
           <StatCol icon="box"          value={activeProducts.length} label="판매중" />
           <StatCol icon="heart"        value={totalLikes}            label="관심" href="/profile/wishlist" />
-          <StatCol icon="shield-check" value={`${trustScore}%`}     label="신뢰도" />
+          <StatCol icon="shield-check" value="0%"                    label="신뢰도" />
         </div>
       </div>
 
@@ -340,7 +340,7 @@ function StatCol({ icon, value, label, href }: {
     <>
       <Icon name={icon} size={18} className="text-[#181818]" />
       <span className="text-[15px] font-bold text-[#181818] leading-[23px]">{value}</span>
-      <span className="text-[9px] text-[#9E9E9E]">{label}</span>
+      <span className="text-[12px] text-[#9E9E9E]">{label}</span>
     </>
   )
   if (href) {
