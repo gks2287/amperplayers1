@@ -188,20 +188,20 @@ export default function ProfileClient({
             <div className="flex items-center gap-1.5 mb-[4px]">
               <span className="text-[13px] font-bold text-[#181818] truncate">{displayName}</span>
               {levelLabel && (
-                <span className="px-[5px] py-[2px] bg-[#181818] rounded text-[14px] font-bold text-white leading-none">
+                <span className="px-[5px] py-[2px] bg-[#181818] rounded text-[10px] font-bold text-white leading-none">
                   {levelLabel}
                 </span>
               )}
             </div>
             <div className="flex items-center gap-1">
               <div className="flex items-center gap-0.5">
-                <Icon name="star-02" size={14} className="text-[#757575]" />
-                <span className="text-[14px] text-[#757575]">0.0</span>
+                <Icon name="star-02" size={13} className="text-[#757575]" />
+                <span className="text-[13px] text-[#757575]">0.0</span>
               </div>
               {sportLabel && (
                 <>
-                  <span className="text-[14px] text-[#757575]">·</span>
-                  <span className="text-[14px] text-[#757575]">{sportLabel}</span>
+                  <span className="text-[13px] text-[#757575]">·</span>
+                  <span className="text-[13px] text-[#757575]">{sportLabel}</span>
                 </>
               )}
             </div>
