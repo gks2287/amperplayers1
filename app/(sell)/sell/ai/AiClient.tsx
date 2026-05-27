@@ -308,22 +308,26 @@ export default function AiClient() {
         </div>
 
         {/* 종합 코멘트 */}
-        <div className="rounded-2xl border border-neutral-200 px-4 py-4 mb-4">
-          <div className="flex items-center gap-1.5 mb-2">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M12 2L13.5 8.5L20 7L15.5 12L20 17L13.5 15.5L12 22L10.5 15.5L4 17L8.5 12L4 7L10.5 8.5L12 2Z"
-                stroke="#181818"
-                strokeWidth="1.5"
-                strokeLinejoin="round"
-                strokeLinecap="round"
-              />
-            </svg>
-            <span className="text-[12px] font-bold text-neutral-900">AI 종합 코멘트</span>
+        <div className="rounded-2xl mb-4 overflow-hidden" style={{ background: 'linear-gradient(135deg, #181818 0%, #3a3a3a 100%)' }}>
+          <div className="px-4 pt-4 pb-1 flex items-center gap-2">
+            <div className="w-[28px] h-[28px] rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M12 2L13.5 8.5L20 7L15.5 12L20 17L13.5 15.5L12 22L10.5 15.5L4 17L8.5 12L4 7L10.5 8.5L12 2Z"
+                  stroke="white"
+                  strokeWidth="1.5"
+                  strokeLinejoin="round"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </div>
+            <span className="text-[13px] font-bold text-white">AI 종합 코멘트</span>
           </div>
-          <p className="text-[13px] text-neutral-700 leading-[20px] whitespace-pre-line break-keep">
-            {result.comment}
-          </p>
+          <div className="px-4 pb-4 pt-2">
+            <p className="text-[13px] text-white/80 leading-[21px] whitespace-pre-line break-keep">
+              {result.comment}
+            </p>
+          </div>
         </div>
 
         {/* 주의 안내 */}
